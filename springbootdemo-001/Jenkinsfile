@@ -2,6 +2,11 @@ node{
 
     stage("拉取代码"){
       echo "拉取代码"
+        checkout([$class: 'GitSCM',
+                         branches: [[name: 'master']],
+                         userRemoteConfigs: [[credentialsId: 'github-id',
+                                             url: 'https://github.com/AndrewMail/springbootdemo.git']]])
+            
     }
     stage("编译打包"){
       echo "编译打包"
