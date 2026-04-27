@@ -1,22 +1,29 @@
-// node{
-
-//     stage("拉取代码"){
-//       echo "拉取代码"
-//       git credentialsId: 'github-id', url: 'https://github.com/AndrewMail/springbootdemo.git'
-            
-//     }
-//     stage("编译打包"){
-//       echo "编译打包"
-//         // groovy语法
-//         try{
-            
-//         }
-//         catch(err){
-//             // 异常处理代码
-//         }
-//     }
-//     stage("部署"){
-//       echo "部署"
-//     }
-// }
-
+node {
+    def mvnHome
+    stage('拉取代码') { // for display purposes
+        echo "拉取代码"
+        // Get some code from a GitHub repository
+        git credentialsId: 'github-id', url: 'https://github.com/AndrewMail/springbootdemo.git'
+        // Get the Maven tool.
+        // ** NOTE: This 'M3' Maven tool must be configured
+        // **       in the global configuration.
+        mvnHome = tool 'maven3.6.3'
+    }
+    stage('编译') {
+        echo "编译"
+        // Run the maven build
+        sh 'ls'
+        sh 'pwd'
+        sh 'cd springbootdemo-001'
+        sh 'pwd'
+        //sh "mvn -Dmaven.test.skip=true clean package"
+    }
+    stage('部署') {
+        echo "部署"
+    }
+    stage('Results') {
+        //junit '**/target/surefire-reports/TEST-*.xml'
+        //archiveArtifacts 'target/*.jar'
+        echo "results..."
+    }
+}
