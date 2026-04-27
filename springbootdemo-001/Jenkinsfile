@@ -1,9 +1,10 @@
 node {
     def mvnHome
     stage('拉取代码') { // for display purposes
-        echo "拉取代码"
+        echo "haha进入了"
+        //echo "拉取代码"
         // Get some code from a GitHub repository
-        git credentialsId: 'github-id', url: 'https://github.com/AndrewMail/springbootdemo.git'
+        //git credentialsId: 'github-id', url: 'https://github.com/AndrewMail/springbootdemo.git'
         // Get the Maven tool.
         // ** NOTE: This 'M3' Maven tool must be configured
         // **       in the global configuration.
