@@ -1,25 +1,22 @@
-node{
+// node{
 
-    stage("拉取代码"){
-      echo "拉取代码"
-        checkout([$class: 'GitSCM',
-                         branches: [[name: 'master']],
-                         userRemoteConfigs: [[credentialsId: 'github-id',
-                                             url: 'https://github.com/AndrewMail/springbootdemo.git']]])
+//     stage("拉取代码"){
+//       echo "拉取代码"
+//       git credentialsId: 'github-id', url: 'https://github.com/AndrewMail/springbootdemo.git'
             
-    }
-    stage("编译打包"){
-      echo "编译打包"
-        // groovy语法
-        try{
+//     }
+//     stage("编译打包"){
+//       echo "编译打包"
+//         // groovy语法
+//         try{
             
-        }
-        catch(err){
-            // 异常处理代码
-        }
-    }
-    stage("部署"){
-      echo "部署"
-    }
-}
+//         }
+//         catch(err){
+//             // 异常处理代码
+//         }
+//     }
+//     stage("部署"){
+//       echo "部署"
+//     }
+// }
 
